@@ -1,25 +1,50 @@
-import logo from './logo.svg';
-import './App.css';
 
-function App() {
+import './App.css';
+import React from 'react';
+import { Route, BrowserRouter, Switch } from 'react-router-dom'
+import {Provider} from "react-redux";
+import {createStore,applyMiddleware,combineReducers} from "redux";
+import thunk from "redux-thunk";
+import Navbar from '../src/components/Navbar'
+import Home from '../src/components/Home'
+import Register from '../src/components/Register'
+import Login from '../src/components/Login';
+import Comments  from '../src/components/Comments';
+import postReducer from './redux/reducers/postReducer.js'
+import signUpReducer from './redux/reducers/signUpReducer.js'
+import commentReducer from './redux/reducers/commentReducer.js'
+const createStoreWithMiddleware = applyMiddleware(thunk)(createStore);
+
+const rootReducer = combineReducers({
+  posts:postReducer,
+  signUp:signUpReducer,
+  comments:commentReducer
+})
+const store = createStoreWithMiddleware(rootReducer);
+
+
+function App(props) {
+
   return (
+    <Provider store={store}>
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <BrowserRouter>
+         <Navbar/>
+         <Switch>
+          <Route exact path="/" component={Home} />
+          <Route path="/register" component={Register} />
+          <Route path="/login" component={Login} />
+          <Route path="/posts/:userId" component={Comments} />
+         </Switch>
+      </BrowserRouter>
+     
     </div>
+    </Provider>
   );
 }
 
+
+
+
 export default App;
+// export default Home;

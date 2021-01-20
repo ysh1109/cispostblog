@@ -1,0 +1,71 @@
+.post_tableBox {
+    margin-top: 50px;
+    width:100vw;
+    padding: 20px;
+}
+.post {
+    display: flex;
+    height: 90vh;
+    width: 100vw;
+    justify-content: center;
+    text-align: center;
+}
+.comment_editbox {
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0; left: 0; bottom: 0; right: 0;
+    top:20%;
+    height:50vh;
+    width: 50vw;
+    align-items: center;
+    background-color: white;
+    transition: all 0.5s ease;
+    box-shadow: 1px 1px 5px 1px black;
+}
+
+.comment_editbox.active {
+    background:white;
+    box-shadow: 1px 1px 5px 1px black;
+    display: none;
+    transition: all 0.5s ease;
+    z-index: 1;
+}
+
+.comment_editbox h2 {
+    font-weight: 500;
+    margin-top: 25px;
+    align-items: center;
+    margin-bottom: 15px;
+}
+.comment_editbox > form > input {
+    background-color: white;
+    width: 95%;
+    height: 30px;
+    margin-bottom: 10px;
+    padding-left: 10px;
+    border:1px solid black
+}
+
+.comment_editbox_regbtnn {
+    height: 30px;
+    width: 100%;
+    background-color: #f0c14b;
+    border:1px solid;
+    margin-top: 10px;
+    border-color: #a88734 #9c7e31 #846a29;
+    color: #111;
+}       
+
+.home_alert {
+    display: flex;
+    align-items: center;
+    margin:auto;
+    justify-content: center;
+    box-shadow: 1px 5px 15px 5px gray;
+    border-radius: 10px;
+    height: 50vh;
+    width: 50vw;
+    background-color: aliceblue;
+}
